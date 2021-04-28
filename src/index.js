@@ -11,17 +11,15 @@ template.innerHTML = /*html*/`
 class BuzzLogo extends HTMLElement {
   constructor() {
     super();
-    
     this.color = 'lightgray';
     this.attachShadow({ mode: "open" });
-
     this.shadowRoot.adoptedStyleSheets = [styleSheet];
   }
 
   connectedCallback() {
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this.shadowRoot.getElementById("btn").onclick = () => this.changeColor();
-    this.update(this.count);
+    this.update();
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -33,10 +31,12 @@ class BuzzLogo extends HTMLElement {
     this.update()
   }
 
-
-
-  update(count) {
+  update() {
+    this.shadowRoot.getElementById("logo").classList.add('rotate');
     this.shadowRoot.getElementById("logo").style.fill = this.color;
+    setTimeout(()=>{
+      this.shadowRoot.getElementById("logo").classList.remove('rotate');
+    },600) 
   }
 }
 
