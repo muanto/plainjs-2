@@ -6,14 +6,22 @@ import babel from '@rollup/plugin-babel';
 import autoprefixer from 'autoprefixer';
 import commonjs from '@rollup/plugin-commonjs';
 import generatePackageJson from 'rollup-plugin-generate-package-json';
+import pkg from './package.json';
+
 export default {
   input: 'src/index.js',
-  output: {
-    dir: 'dist',
-    format: 'es',
-  },
+  output: [
+    {
+      dir: 'dist',
+      format: 'es',
+    },
+    // {
+    //   dir: 'dist/iife',
+    //   format: 'iife',
+    // },
+  ],
   preserveModules: false,
-  external: [],
+  external: Object.keys(pkg.dependencies),
   plugins: [
     postcss({
       extract: false,

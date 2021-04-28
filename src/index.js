@@ -1,12 +1,17 @@
 import logo from './logo'
-import styleSheet from './style.css'
+
+import style from './style';
 import getRandomColor from './getRandomColor';
+
 const template = document.createElement("template");
 
 template.innerHTML = /*html*/`
   ${logo}
   <button id="btn">Change color</button>
  `;
+ 
+const styleSheet = new CSSStyleSheet();
+styleSheet.replaceSync(style);
 
 class BuzzLogo extends HTMLElement {
   constructor() {

@@ -1,4 +1,6 @@
+export default `
 :host {
+  display: block;
   border: 1px solid gray;
   padding: 10px;
   width: 200px;
@@ -6,6 +8,7 @@
 
 svg {
   fill: lightgray;
+  width: 100%:
 }
 
 button {
@@ -34,3 +37,4 @@ button {
     0 {transform:rotate(0deg);}
     100% {transform:rotate(360deg);}
 }
+`;
