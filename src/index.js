@@ -1,60 +1,43 @@
+import logo from './logo'
+import styleSheet from './style.css'
+import getRandomColor from './getRandomColor';
 const template = document.createElement("template");
-const styleCss = `
-  * {
-    font-size: 200%;
-  }
-
-  span {
-    width: 4rem;
-    display: inline-block;
-    text-align: center;
-  }
-
-  button {
-    width: 4rem;
-    height: 4rem;
-    border: none;
-    border-radius: 10px;
-    background-color: seagreen;
-    color: white;
-  }
-`;
-
-const sheet = new CSSStyleSheet();
-sheet.replaceSync(styleCss);
 
 template.innerHTML = /*html*/`
-  
-  <button id="dec">-</button>
-  <span id="count"></span>
-  <button id="inc">+</button>`;
+  ${logo}
+  <button id="btn">Change color</button>
+ `;
 
-class MyCounter extends HTMLElement {
+class BuzzLogo extends HTMLElement {
   constructor() {
     super();
-    this.count = 0;
+    
+    this.color = 'lightgray';
     this.attachShadow({ mode: "open" });
-      this.shadowRoot.adoptedStyleSheets = [sheet];
+
+    this.shadowRoot.adoptedStyleSheets = [styleSheet];
   }
 
   connectedCallback() {
     this.shadowRoot.appendChild(template.content.cloneNode(true));
-    this.shadowRoot.getElementById("inc").onclick = () => this.inc();
-    this.shadowRoot.getElementById("dec").onclick = () => this.dec();
+    this.shadowRoot.getElementById("btn").onclick = () => this.changeColor();
     this.update(this.count);
   }
 
-  inc() {
-    this.update(++this.count);
+  attributeChangedCallback(name, oldValue, newValue) {
+    console.log('Custom square element attributes changed.');
   }
 
-  dec() {
-    this.update(--this.count);
+  changeColor() {
+    this.color = getRandomColor();
+    this.update()
   }
+
+
 
   update(count) {
-    this.shadowRoot.getElementById("count").innerHTML = count;
+    this.shadowRoot.getElementById("logo").style.fill = this.color;
   }
 }
 
-customElements.define("my-counter", MyCounter);
+customElements.define("buzz-logo", BuzzLogo);
