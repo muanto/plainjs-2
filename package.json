@@ -1,4 +1,27 @@
 {
- "name": "@wcd/muanto.buzz-logo-es",
- "version": "0.0.0"
+  "name": "@wcd/muanto.buzz-logo-es",
+  "version": "0.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "node_modules/.bin/rollup -c rollup.config.js"
+  },
+  "devDependencies": {
+    "rollup": "^2.45.2"
+  },
+  "dependencies": {
+    "@babel/core": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-react": "^7.13.13",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^18.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.2.1",
+    "autoprefixer": "^10.2.5",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "postcss": "^8.2.13",
+    "rollup-plugin-generate-package-json": "^3.2.0",
+    "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "styled-components": "^5.2.3"
+  }
 }
