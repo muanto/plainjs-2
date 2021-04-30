@@ -3,7 +3,7 @@ import style from './style.js';
 import getRandomColor from './getRandomColor.js';
 const template = document.createElement("template");
 template.innerHTML =
-/*html*/
+/* html */
 `
   ${logo}
   <button id="btn">Change color</button>
@@ -43,9 +43,9 @@ class BuzzLogo extends HTMLElement {
   rotateAndUpdate() {
     this.shadowRoot.getElementById("logo").classList.add('rotate');
     setTimeout(() => {
-      this.shadowRoot.getElementById("logo").classList.remove('rotate');
       this.update();
-    }, 300);
+      this.shadowRoot.getElementById("logo").classList.remove('rotate');
+    }, 500);
   }
 
   update() {

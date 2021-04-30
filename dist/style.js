@@ -1,4 +1,12 @@
-export default `
+export default
+/* css */
+`
+@keyframes spin {
+    0 {transform: rotate(0deg) scale(1); opacity:1;}
+    50% {transform: rotate(180deg) scale(0.1); opacity:0.2;}
+    100% {transform: rotate(360deg) scale(1) ; opacity:1;}
+}
+
 :host {
   display: block;
   border: 1px solid gray;
@@ -8,7 +16,8 @@ export default `
 
 svg {
   fill: lightgray;
-  width: 100%:
+  width: 100%;
+  transition: all;
 }
 
 button {
@@ -22,19 +31,7 @@ button {
   width: 100%;
 }
 .rotate {
-  animation:spin 300ms;
+  animation:spin 500ms;
   transform-origin: 50% 50%;
-}
-@-moz-keyframes spin {
-    0 { -moz-transform: rotate(0deg); }
-    100% { -moz-transform: rotate(360deg); }
-}
-@-webkit-keyframes spin {
-    0 { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-}
-@keyframes spin {
-    0 {transform:rotate(0deg);}
-    100% {transform:rotate(360deg);}
 }
 `;
